@@ -132,8 +132,9 @@ app.get('/', function(req, res) {
     res.send('Welcome to my API');
 })
 
-app.get('/createmany', async function(req, res) {
-    let data = await userModel.insertMany(users)
+app.get('/users', async function(req, res) {
+    // let data = await userModel.find({age : 20})     normal ese likkhte hai
+    let data = await userModel.find({age : {$eq : 30}}) //in  eq operator in mongoose
     res.send(data);
 })
 
